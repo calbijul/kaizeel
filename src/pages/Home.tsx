@@ -56,23 +56,26 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 w-full bg-white shadow-sm z-50">
+       <header className="fixed top-0 w-full bg-white shadow-sm z-50">
         <nav className="container mx-auto px-6 py-4">
-          
-          <div className="flex justify-end space-x-8">
-            {['home', 'about', 'contact'].map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`${
-                  activeSection === section
-                    ? 'text-blue-600 border-b-2 border-blue-600'
-                    : 'text-gray-600 hover:text-blue-600'
-                } capitalize transition-all duration-300 ease-in-out`}
-              >
-                {section}
-              </button>
-            ))}
+          <div className="flex justify-between items-center">
+            <h1 className="text-xl font-extrabold text-gray-800 tracking-widest ">KAIZEEL</h1>
+            
+            <div className="flex space-x-8">
+              {['home', 'about', 'contact'].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`${
+                    activeSection === section
+                      ? 'text-blue-600 border-b-2 border-blue-600'
+                      : 'text-gray-600 hover:text-blue-600'
+                  } capitalize transition-all duration-300 ease-in-out`}
+                >
+                  {section}
+                </button>
+              ))}
+            </div>
           </div>
         </nav>
       </header>
@@ -83,7 +86,7 @@ const Home = () => {
           className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white"
         >
           <div className={`text-center space-y-4 ${activeSection === 'home' ? 'section-enter-active' : ''}`}>
-            <h1 className="text-5xl font-bold text-gray-800">Welcome to My Portfolio</h1>
+            <h1 className="text-5xl font-bold text-gray-800 tracking-widest">Kaizeel</h1>
             <p className="text-xl text-gray-600">Scroll down to explore</p>
           </div>
         </section>
@@ -115,7 +118,7 @@ const Home = () => {
           }`}>
             <h2 className="text-4xl font-bold mb-8 text-gray-800">Contact Me</h2>
             <div className="max-w-md mx-auto space-y-4">
-
+              
               
 
               {/* <input

@@ -8,6 +8,7 @@ body {
   font-style: normal;
   }
 
+
   @layer components {
     .section-enter-active {
       animation: fadeInUp 0.5s ease-out forwards;
