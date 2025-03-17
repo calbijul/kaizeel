@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+body {
+    font-family: 'roboto';
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  }
+
+  @layer components {
+    .section-enter-active {
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+  
+    .section-enter-up {
+      animation: slideInUp 0.5s ease-out forwards;
+    }
+  
+    .section-enter-down {
+      animation: slideInDown 0.5s ease-out forwards;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+ 
