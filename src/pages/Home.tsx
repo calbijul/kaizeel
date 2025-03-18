@@ -9,6 +9,47 @@ const Home = () => {
   const contactRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
 
+
+  const [displayText, setDisplayText] = useState('');
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const typingTimeout = useRef<number | null>(null);
+
+useEffect(() => {
+  const targetText = 'Kaizeel';
+  
+  const typeText = () => {
+    const currentText = targetText.substring(0, charIndex);
+    setDisplayText(currentText);
+
+    if (!isDeleting) {
+      if (charIndex < targetText.length) {
+        setCharIndex(prev => prev + 1);
+      } else {
+        setTimeout(() => setIsDeleting(true), 2000);
+        return;
+      }
+    } else {
+      if (charIndex > 0) {
+        setCharIndex(prev => prev - 1);
+      } else {
+        setIsDeleting(false);
+        setTimeout(() => setCharIndex(1), 500);
+        return;
+      }
+    }
+
+    typingTimeout.current = setTimeout(typeText, isDeleting ? 50 : 100);
+  };
+
+  typingTimeout.current = setTimeout(typeText, 100);
+
+  return () => {
+    if (typingTimeout.current) clearTimeout(typingTimeout.current);
+  };
+}, [charIndex, isDeleting]);
+
+
   const scrollToSection = (section: string) => {
     setActiveSection(section);
     setIsMenuOpen(false);
@@ -130,10 +171,13 @@ const Home = () => {
       <div className="space-y-0">
         <section
           ref={homeRef}
-          className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white pt-16"
+          className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white pt-16 "
         >
           <div className={`text-center space-y-4 ${activeSection === 'home' ? 'section-enter-active' : ''}`}>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 tracking-widest">Kaizeel</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 tracking-widest">
+              {displayText}
+              <span className="typing-cursor">|</span>
+            </h1>
             <p className="text-lg sm:text-xl text-gray-600">Scroll down to explore</p>
           </div>
         </section>
@@ -165,6 +209,7 @@ const Home = () => {
           }`}>
             <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-800">Contact Me</h2>
           </div>
+
         </section>
       </div>
     </div>
