@@ -56,7 +56,7 @@ const defaultImages: { [key: string]: string } = {
 };
 
 const Portfolio = () => {
-  // Page state and nav transitions
+
   const [activeSection, setActiveSection] = useState("home");
   const [scrollDirection, setScrollDirection] = useState<"up" | "down">("down");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,17 +79,17 @@ const Portfolio = () => {
 
   const projects: Project[] = [
     {
-      title: "Project Management",
-      description: "A simple task management website.",
+      title: "TaskFlow",
+      description: "A simple task management web app.",
       tech: ["React", "TypeScript", "Tailwind", "Node.js", "Express"],
-      link: "https://your-deployed-project1.vercel.app/",
-      bgImage: "/img/custom-project-management.jpg",
+      link: "#",
+      bgImage: "/img/taskflow.png",
     },
     {
       title: "Portfolio Website",
       description: "Modern responsive portfolio.",
       tech: ["React", "Tailwind"],
-      link: "https://your-deployed-project2.vercel.app/",
+      link: "#",
     },
     {
       title: "Gaisano University",
@@ -102,7 +102,7 @@ const Portfolio = () => {
       title: "Sample",
       description: "Sample project.",
       tech: ["React", "Tailwind"],
-      link: "https://your-deployed-project4.vercel.app/",
+      link: "#",
     },
   ];
 
@@ -153,7 +153,7 @@ const Portfolio = () => {
     return () => window.removeEventListener("scroll", updateScrollProgress);
   }, []);
 
-  // Handle scroll events and update active section
+ 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -245,7 +245,7 @@ const Portfolio = () => {
         className="min-h-screen"
       >
         <div className="min-h-screen bg-gray-950 text-gray-100">
-          {/* Navigation */}
+
           <header className="fixed top-0 w-full bg-gray-900 shadow-md z-50">
             <div className="h-1 bg-gray-800">
               <motion.div
@@ -322,7 +322,7 @@ const Portfolio = () => {
                   {displayText}
                   <span className="typing-cursor text-slate-500">♡</span>
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-300">Scroll down to explore</p>
+                <p className="text-lg sm:text-xl text-gray-300 tracking-widest">Scroll down to explore</p>
               </motion.div>
             </section>
 
@@ -476,7 +476,7 @@ const Portfolio = () => {
                   </div>
  
                   <div className="flex-1 bg-gray-900 p-8 rounded-lg shadow-lg flex flex-col items-center justify-center">
-                    <h3 className="text-xl font-bold mb-4 text-gray-100">Follow Me</h3>
+                    <h3 className="text-xl font-bold mb-4 text-gray-100 tracking-widest">Let's Connect!</h3>
                     <div className="flex gap-6">
                       <a
                         href="mailto:calbijul@gmail.com"
