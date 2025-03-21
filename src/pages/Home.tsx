@@ -90,6 +90,7 @@ const Portfolio = () => {
       description: "Modern responsive portfolio.",
       tech: ["React", "Tailwind"],
       link: "#",
+      bgImage: "/img/portfolio.png",
     },
     {
       title: "Gaisano University",
@@ -115,7 +116,7 @@ const Portfolio = () => {
 
 
   useEffect(() => {
-    const targetText = "Yawa man diay ni";
+    const targetText = "Welcome!";
     const typeText = () => {
       const currentText = targetText.substring(0, charIndex);
       setDisplayText(currentText);
@@ -320,7 +321,7 @@ const Portfolio = () => {
               >
                 <h1 className="text-4xl sm:text-5xl font-bold tracking-widest text-gray-100">
                   {displayText}
-                  <span className="typing-cursor text-slate-500">♡</span>
+                  <span className="typing-cursor text-slate-500">|</span>
                 </h1>
                 <p className="text-lg sm:text-xl text-gray-300 tracking-widest">Scroll down to explore</p>
               </motion.div>
