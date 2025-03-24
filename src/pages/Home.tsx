@@ -107,16 +107,16 @@ const Portfolio = () => {
     },
   ];
 
-  const skills = [
-    { name: "React", level: 55 },
-    { name: "TypeScript", level: 40 },
-    { name: "Node.js", level: 40 },
-    { name: "Tailwindcss", level: 60 },
-  ];
+  // const skills = [
+  //   { name: "React", level: 55 },
+  //   { name: "TypeScript", level: 40 },
+  //   { name: "Node.js", level: 40 },
+  //   { name: "Tailwindcss", level: 60 },
+  // ];
 
 
   useEffect(() => {
-    const targetText = "Welcome!";
+    const targetText = "Welcome to my portfolio!";
     const typeText = () => {
       const currentText = targetText.substring(0, charIndex);
       setDisplayText(currentText);
@@ -256,9 +256,15 @@ const Portfolio = () => {
               />
             </div>
             <nav className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-              <div className="text-lg sm:text-xl font-extrabold tracking-widest text-slate-400">
-                KAIZEEL
-              </div>
+            <motion.div
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="text-lg sm:text-xl font-extrabold tracking-widest bg-gradient-to-r from-slate-400 via-gray-500 to-slate-600 bg-clip-text text-transparent"
+>
+  KAIZEEL
+</motion.div>
+
               <div className="hidden md:flex space-x-8">
                 {["home", "about", "projects", "contact"].map((section) => (
                   <button
@@ -344,7 +350,7 @@ const Portfolio = () => {
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-6">
                   <p className="text-base sm:text-lg text-gray-300 max-w-2xl break-words tracking-widest">
-                    I'm an enthusiastic beginner developer with a passion for web development.
+                    I'm an enthusiastic beginner developer with a passion for software development.
                     Currently, I'm expanding my skills with the MERN stack and exploring MySQL
                     for dynamic and responsive applications.
                   </p>
@@ -420,10 +426,10 @@ const Portfolio = () => {
                             className="w-full h-48 object-cover rounded-t-lg"
                           />
                           <div className="p-4">
-                            <h3 className="text-xl font-bold mb-2 text-gray-100">
+                            <h3 className="text-xl font-bold mb-2 text-gray-100 tracking-widest">
                               {project.title}
                             </h3>
-                            <p className="text-gray-300 mb-4">{project.description}</p>
+                            <p className="text-gray-300 mb-4 tracking-wide">{project.description}</p>
                             <div className="flex flex-wrap gap-2">
                               {project.tech.map((tech) => (
                                 <FluidButton
