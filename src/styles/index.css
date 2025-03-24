@@ -68,6 +68,15 @@ body {
   color: #e91e63;
 }
 
+.blinking-cursor {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+
 /* Uncomment and modify the grainy background effect if needed */
 /*
 .grainy::before {
