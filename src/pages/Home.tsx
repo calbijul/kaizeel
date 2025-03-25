@@ -132,10 +132,11 @@ const GreetingPage = ({ greetings, onComplete }: GreetingPageProps) => {
           className="text-4xl sm:text-6xl font-bold text-white"
         >
           {displayedText}
-          <span className="blinking-cursor">|</span>
+          <span className="blinking-cursor">|</span>y
         </motion.div>
       </AnimatePresence>
     </motion.div>
+    
   );
 };
 
@@ -321,6 +322,7 @@ const Portfolio = () => {
         <GreetingPage
           greetings={["Bonjour", "Hola", "こんにちは", "안녕하세요", "Hello"]}
           onComplete={() => setShowGreeting(false)}
+          
         />
       ) : (
         <motion.div
