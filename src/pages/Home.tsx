@@ -132,7 +132,7 @@ const GreetingPage = ({ greetings, onComplete }: GreetingPageProps) => {
           className="text-4xl sm:text-6xl font-bold text-white"
         >
           {displayedText}
-          <span className="blinking-cursor">|</span>y
+          <span className="blinking-cursor">|</span>
         </motion.div>
       </AnimatePresence>
     </motion.div>
