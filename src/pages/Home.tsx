@@ -1,43 +1,10 @@
-import { useState, useEffect, useRef, ReactNode } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ContactForm from './ContactForm';
+import FluidButton from './FluidButton';
 
-interface FluidButtonProps {
-  children: ReactNode;
-  className?: string;
-  onClick?: () => void;
-}
 
-const FluidButton = ({ children, className, onClick }: FluidButtonProps) => {
-  return (
-    <motion.button
-      onClick={onClick}
-      className={`relative overflow-hidden ${className}`}
-      initial={{ backgroundColor: "#475569", color: "#fff" }}
-      whileHover={{
-        backgroundColor: "#cbd5e1",
-        color: "#000",
-        transition: { duration: 0.8, ease: "easeInOut" },
-      }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
-      style={{ border: "none" }}
-    >
-      <motion.span
-        className="absolute rounded-full bg-white opacity-20"
-        initial={{ scale: 0, opacity: 0 }}
-        whileHover={{ scale: 4, opacity: 0 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-        style={{
-          top: "50%",
-          left: "50%",
-          width: 40,
-          height: 40,
-          transform: "translate(-50%, -50%)",
-        }}
-      />
-      <span className="relative z-10">{children}</span>
-    </motion.button>
-  );
-};
+
 
 interface Project {
   title: string;
@@ -51,7 +18,7 @@ const defaultImages: { [key: string]: string } = {
   "Project Management": "/img/project-management.jpg",
   "Portfolio Website": "/img/portfolio.jpg",
   "Gaisano University": "/img/gaisano.png",
-  Sample: "/img/sample.jpg",
+  "Craft PDF": "/img/sample.jpg",
 };
 
 interface GreetingPageProps {
@@ -150,6 +117,7 @@ const Portfolio = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorHovered, setCursorHovered] = useState(false);
+ 
 
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -157,6 +125,7 @@ const Portfolio = () => {
   const contactRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
   const typingTimeout = useRef<number | null>(null);
+
 
   const projects: Project[] = [
     {
@@ -171,7 +140,7 @@ const Portfolio = () => {
       description: "Modern responsive portfolio.",
       tech: ["React", "Tailwind"],
       link: "#",
-      bgImage: "/img/portfolio.png",
+      bgImage: "/img/port.png",
     },
     {
       title: "Gaisano University",
@@ -181,10 +150,11 @@ const Portfolio = () => {
       bgImage: "/img/gaisano.png",
     },
     {
-      title: "Sample",
-      description: "Sample project.",
+      title: "Craft PDF",
+      description: "A basic PDF Editor for free, with the basic functions like Rotate, Split, & Merge..",
       tech: ["React", "Tailwind"],
-      link: "#",
+      link: "https://craft-pdf.vercel.app/",
+      bgImage: "/img/craft.png",
     },
   ];
 
@@ -319,7 +289,7 @@ const Portfolio = () => {
     <AnimatePresence>
       {showGreeting ? (
         <GreetingPage
-          greetings={["Bonjour", "Hola", "こんにちは", "안녕하세요", "Hello"]}
+          greetings={["Hello!"]}
           onComplete={() => setShowGreeting(false)}
         />
       ) : (
@@ -448,7 +418,7 @@ const Portfolio = () => {
                         <br /><br />
                         Currently, I'm focused on expanding my skills with the MERN stack—leveraging MongoDB, Express, React, and Node.js—to create scalable and interactive web applications. I'm also exploring MySQL to enhance my database management abilities, ensuring that my projects are dynamic, responsive, and efficient.
                       </p>
-                      <a href="/path/to/sample_resume.pdf" download>
+                      <a href="/pdf/CalbiResume.pdf" download>
                         <FluidButton className="inline-flex items-center px-6 py-3 rounded-lg mt-6 mx-auto">
                           <svg
                             className="w-5 h-5 mr-2"
@@ -571,25 +541,7 @@ const Portfolio = () => {
                   <div className="flex flex-col md:flex-row gap-8">
                     <div className="flex-1 bg-gray-900 p-8 rounded-lg shadow-lg">
                       <h3 className="text-xl font-bold mb-4 text-gray-100">Contact Form</h3>
-                      <form className="space-y-4">
-                        <input
-                          type="text"
-                          placeholder="Your Name"
-                          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-400"
-                        />
-                        <input
-                          type="email"
-                          placeholder="Your Email"
-                          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-400"
-                        />
-                        <textarea
-                          placeholder="Your Message"
-                          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-400 h-32"
-                        />
-                        <FluidButton className="w-full px-6 py-3 rounded-lg">
-                          Send Message
-                        </FluidButton>
-                      </form>
+                       <ContactForm />
                     </div>
                     <div className="flex-1 bg-gray-900 p-8 rounded-lg shadow-lg flex flex-col items-center justify-center">
                       <h3 className="text-xl font-bold mb-4 text-gray-100 tracking-widest">
